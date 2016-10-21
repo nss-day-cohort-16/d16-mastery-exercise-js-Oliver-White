@@ -7,17 +7,17 @@ var tree_char = document.getElementById("tree_char");
 var tree_button = document.getElementById("tree_button")
 
 
-tree_height.addEventListener('keyup', function (event) {
- if (event.which === 13) {
-     set_height(event.target.value);
- }
-});
+// tree_height.addEventListener('keyup', function (event) {
+//  if (event.which === 13) {
+//      set_height(event.target.value);
+//  }
+// });
 
-tree_char.addEventListener('keyup', function (event) {
- if (event.which === 13) {
-     set_char(event.target.value);
- }
-});
+// tree_char.addEventListener('keyup', function (event) {
+//  if (event.which === 13) {
+//      set_char(event.target.value);
+//  }
+// });
 
 tree_button.addEventListener("click", function (event) {
     set_height_and_char();
@@ -58,10 +58,11 @@ function grow_tree (tree) {
   var spaces = tree.height - 1;
   var char = tree.char;
   var char_string = "";
-
+  var output = document.getElementById("its_a_tree");
   for (var i = 0, j = spaces; i < tree.height; i++, j--) {
     char_string += char;
     console.log(" ".repeat(j) + char_string);
+    output.innerHTML += "<div>" + " ".repeat(j) + char_string + "</div>";
     char_string += char;
   }
 }
