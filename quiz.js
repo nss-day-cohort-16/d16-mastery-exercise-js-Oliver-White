@@ -9,34 +9,19 @@ var tree_button = document.getElementById("tree_button")
 
 tree_height.addEventListener('keyup', function (event) {
  if (event.which === 13) {
-     set_height(event.target);
+     set_height(event.target.value);
  }
 });
 
 tree_char.addEventListener('keyup', function (event) {
  if (event.which === 13) {
-     set_char(event.target);
+     set_char(event.target.value);
  }
 });
 
 tree_button.addEventListener("click", function (event) {
     set_height_and_char();
 });
-
-function set_height_and_char() {
-  if(tree_height.value > 0) {
-    set_height(tree_height.value);
-  } else {
-    alert('You must set a height value.');
-  }
-
-  if(tree_char.value === '') {
-    alert('You must enter a character for your tree');
-  } else {
-    set_char(tree_char.value);
-  }
-  console.log("Updated tree height to " + tree.height + " and char to " + tree.char);
-}
 
 function set_height(height) {
   tree.height = height;
@@ -46,6 +31,27 @@ function set_height(height) {
 function set_char(char) {
   tree.char = char;
   console.log("Updated tree char to " + tree.char);
+}
+
+function set_height_and_char() {
+  if(tree_height.value > 0) {
+    set_height(tree_height.value);
+  } else {
+    alert('You must set a height value.');
+    return;
+  }
+
+  if(tree_char.value === '') {
+    alert('You must enter a character for your tree');
+    return;
+  } else if(tree_char.value.length > 1) {
+    alert('You must enter only a single character for your tree');
+    return;
+  } else {
+    set_char(tree_char.value);
+  }
+
+  grow_tree(tree);
 }
 
 function grow_tree (tree) {
