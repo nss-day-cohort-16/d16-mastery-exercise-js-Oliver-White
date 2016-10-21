@@ -62,7 +62,6 @@ function grow_tree (tree) {
   for (var i = 0, j = spaces; i < tree.height; i++, j--) {
     char_string += char;
     console.log(" ".repeat(j) + char_string);
-    // output.innerHTML += "<div>" + " ".repeat(j) + char_string + "</div>";
     char_string += char;
   }
 }
