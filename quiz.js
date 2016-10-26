@@ -25,12 +25,10 @@ tree_button.addEventListener("click", function (event) {
 
 function set_height(height) {
   tree.height = height;
-  console.log("Updated tree height to " + tree.height);
 }
 
 function set_char(char) {
   tree.char = char;
-  console.log("Updated tree char to " + tree.char);
 }
 
 function set_height_and_char() {
